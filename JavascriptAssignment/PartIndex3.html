@@ -1,0 +1,107 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>my d3</title>
+	<link rel="stylesheet" type="text/css" href="css/Part3.css ">
+	<script src="d3.min.js"></script>
+
+</head>
+<body>
+<h1>Bar graph for life expectency1</h1>
+	<script>
+
+			var margin= { top:20, right: 10, bottom:100,left: 40},
+			width=1000 -margin.right -margin.left,
+			height=500 - margin.top - margin.bottom;
+
+			var svg= d3.select("body").append("svg")
+			.attr({"width":width +margin.right + margin.left,
+				"height": height +margin.top + margin.bottom
+			})
+
+			.append("g")
+				.attr("transform","translate("+ margin.left + ','+margin.right + ')');
+
+			var xScale = d3.scale.ordinal()
+				.rangeRoundBands([0,width],0.2, 0.2);
+
+			var yScale = d3.scale.linear()
+				.range([height,0]);
+
+			var xAxis = d3.svg.axis()
+				.scale(xScale)
+				.orient("bottom");
+
+			var yAxis = d3.svg.axis()
+				.scale(yScale)
+				.orient("left");	
+
+
+
+			d3.json("json/AssignmentPart3.json", function(error,data){
+
+				if(error) console.log("Error: data not loaded");
+
+			data.forEach(function(d){
+				d["Life expectancy at birth, total (years)"] = +d["Life expectancy at birth, total (years)"];
+				d.Country =d.Country;
+			});
+
+				 xScale.domain(data.map(function(d) { return d.Country; }));
+  		 		yScale.domain([4100, d3.max(data, function(d) { return d["Life expectancy at birth, total (years)"]; })]);
+
+
+		
+				
+			// var widthScale=d3.scale.linear()
+			// 				.domain([1000,2500])
+			// 				.range([0,width]);
+
+			// var axis=d3.svg.axis()
+		 // 			.scale(widthScale);	
+
+			svg.selectAll("rect")
+				.data(data)
+				.enter()
+				.append("rect")
+					.attr ({
+						'x':function(d) { return xScale(d.Country); },
+						'y': function(d) {return yScale(d["Life expectancy at birth, total (years)"]);},
+						"width": xScale.rangeBand(),
+						"height": function(d) { return height
+						 - yScale(d["Life expectancy at birth, total (years)"]);}
+
+					})
+					.style("fill",function(d,i){ return 'rgb(20,20'+((i*30)+100)+')'});
+
+
+					svg.selectAll("text")
+						.data(data)
+						.enter()
+						.append('text')
+						.text(function(d) {return d["Life expectancy at birth, total (years)"];  })
+						.attr('x', function(d) { return xScale(d.Country) + xScale.rangeBand()/2;})
+						.attr('y', function(d) { return yScale(d["Life expectancy at birth, total (years)"]) +12;})
+						.style("fill","orange")
+						.style("text-anchor","middle");
+
+				svg.append("g")
+					.attr("class", "x axis")
+					.attr("transform","translate(0,"+ height+")")
+					.call(xAxis);
+					// .selectAll("text")
+					// .attr("transform","rotate(-60)")
+					// .attr("dx",)&&&&&&&&&&&&&&
+
+
+
+				svg.append("g")
+					.attr("class","y axis")
+					.call(yAxis);	
+			
+});
+		
+	</script>
+</body>
+</html>
