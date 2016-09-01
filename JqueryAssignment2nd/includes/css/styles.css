@@ -1,0 +1,65 @@
+.fm
+{
+	text-align: center;
+}
+.headings
+{
+  color:  #F08080;
+ 
+}
+body
+{
+  background-color:   #B0E0E6;
+}
+h1
+{
+  text-align: center;
+  color:    #F08080;
+}
+.table-responsive
+{
+  text-align: center;
+}
+.viewButton
+{
+  margin-top: 5px;
+  background-color: #CD5C5C;
+}
+.para
+{
+	margin-top: 20px;
+	font-size: 20px;
+	color:   #FFFFF0;
+	text-align: center;
+}
+#details
+{
+  font-size: 20px;
+}
+/* Portrait & landscape phone */
+@media (max-width: 480px) {
+#searchID
+{
+  margin-top: 30px;
+  height: 35px;
+  width: 150px;
+ 
+}
+
+#details
+{
+  font-size: 8px;
+}
+ }
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+#searchID
+{
+  margin-top: 30px;
+  height: 35px;
+  width:600px;
+}
+}

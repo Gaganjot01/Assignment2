@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		
+		<!-- Website Title & Description for Search Engine purposes -->
+		<title>Employee Details</title>
+		<meta name="description" content="">
+		
+		<!-- Mobile viewport optimized -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+		
+		<!-- Bootstrap CSS -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+		
+		
+		
+	</head>
+	<body>
+	<div class="container">
+	<h1>Employee Details</h1>
+		<form align="center">
+  			<input type="text" name="search" id="searchID" placeholder="enter your id..." required>
+			<span class="glyphicon glyphicon-search searchButton"></span>
+  			<br>
+  
+		</form>
+
+		<p class="para">
+		<!-- <button type="add" class="addButton">Add</button> -->
+		
+		<button type="View All" class="viewButton">View All</button>
+		<a href="#myModal" role="button" class="btn btn-warning" data-toggle="modal"><span class="glyphicon glyphicon-hand-up"></span>Add Details</a></p>
+		<div class="table-responsive">
+  		<table class="table table-bordered" id="details">
+  	  	<thead>
+      	<tr class="headings">
+     	 <td id="#idRow">ID</td>
+     	 <td id="#nameRow">Name</td>
+     	 <td id="#ageRow">Age</td>
+     	 <td id="#genderRow">Gender</td>
+     	 <td id="#companyRow">Company</td>
+      	</tr>
+      	
+  		 </thead>
+    	<tbody>
+      
+   		 </tbody>
+    </table>
+    </div><!--end div table-->
+   
+							<div class="modal fade" id="myModal">
+							
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">&times;</button>
+
+											<h4 class="modal-title">Employee Form</h4>
+										</div><!-- end modal-header-->
+										<div class="modal-body">
+											<!-- <h4>Text in modal</h4>
+ -->
+											<form class="form-horizontal">
+												<div class="form-group">
+												<label class="col-lg-2 control-label" for="inputName">Name</label>
+												<div class="col-lg-10">
+													<input class="form-control" id="name" name="fname" placeholder="Name" type="Strings" required>
+												</div>
+													
+												</div>
+												<div class="form-group">
+												<label class="col-lg-2 control-label" for="inputAge">Age: </label>
+												<div class="col-lg-10">
+													<input class="form-control" maxlength="2.0" id="age" placeholder="age" type="number">
+												</div>
+													
+												</div>
+
+												<div class="form-group">
+												<label class="col-lg-2 control-label"  for="inputGender">Gender</label>
+												<div class="col-lg-10">
+													<input class="form-control inputGender" id="gender" placeholder="Gender" rows="3">
+												</div>
+													
+												</div>
+
+												<div class="form-group">
+												<label class="col-lg-2 control-label"  for="inputCompany">Company</label>
+												<div class="col-lg-10">
+													<input class="form-control inputCompany" id="company" placeholder="Company" rows="3">
+												</div>
+													
+												</div>
+
+											</form>
+										</div><!--end modal-body-->
+										<div class="modal-footer">
+												<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+												<button class="btn btn-primary addSubmit" type="submit" >Submit</button>
+												<button class="btn btn-primary saveButton" type="button" >Save</button>
+											</div><!--end modal-footer-->
+									</div><!--end modal-content-->
+								</div><!--end modal-dialog-->
+							</div><!--end myModal-->
+								</div><!-- end div container -->
+					<div id="postswrapper">
+     <div class="item"></div>
+     
+     <div id="loadmoreajaxloader" style="display:none;"></div>
+  </div>		
+
+<!-- First try for the online version of jQuery-->
+	<script src="http://code.jquery.com/jquery.js"></script>
+
+	<!-- Include Modernizr in the head, before any other Javascript -->
+		<script src="includes/js/modernizr-2.6.2.min.js"></script>
+
+			<!-- Custom CSS -->
+		<link href="includes/css/styles.css" rel="stylesheet">
+	
+
+	
+	<!-- All Javascript at the bottom of the page for faster page loading
+	<script src="includes/js/jquery-1.8.2.min.js"></script> -->
+  <script src="includes/js/main.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- If no online access, fallback to our hardcoded version of jQuery -->
+	<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
+	<!-- Custom JS -->
+	<script src="includes/js/script.js"></script>
+
+		
+		
+	</body>
+</html>
+
